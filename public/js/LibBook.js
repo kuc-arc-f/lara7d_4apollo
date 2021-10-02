@@ -1,6 +1,6 @@
 
 //
-var LibBook =  {
+const LibBook =  {
   get_category_items: function(){
     var arr = [
       {id: 1 , name: 'news'} ,

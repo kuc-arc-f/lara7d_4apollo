@@ -1,6 +1,6 @@
 
 //
-var LibUser =  {
+const LibUser =  {
   valid_form : function(){
     try{
       var ret = false
