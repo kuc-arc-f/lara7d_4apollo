@@ -8,7 +8,7 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "lint": "eslint resources/js/*.js"
+        "lint": "eslint resources/js/**/*.js"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
@@ -16,6 +16,7 @@
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
         "eslint": "^7.32.0",
+        "eslint-plugin-react": "^7.26.1",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.19",
@@ -29,6 +30,7 @@
     "dependencies": {
         "@apollo/client": "^3.3.20",
         "graphql": "^15.5.0",
+        "moment": "^2.29.1",
         "react-router-dom": "^5.2.0"
     }
 }
