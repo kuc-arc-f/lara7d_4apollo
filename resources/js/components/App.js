@@ -10,13 +10,18 @@ import Test from './Test';
 import Navbar from './layout/Navbar';
 /* user */
 import userCreate from './user/Create';
-import userLogin from './user/Login';
+import userLogin from './login';
 import userLogout from './user/Logout';
 /* tasks */
 import tasks from './tasks/Index';
 import taskCreate from './tasks/Create';
 import taskShow from './tasks/Show';
 import taskEdit from './tasks/Edit';
+/* notes */
+import notes from './notes/Index';
+import noteCreate from './notes/Create';
+import noteShow from './notes/Show';
+import noteEdit from './notes/Edit';
 
 class App extends Component {
   render() {
@@ -37,6 +42,11 @@ class App extends Component {
           <Route path='/task_create' component={taskCreate} />
           <Route path='/task_show/:id' component={taskShow} />
           <Route path='/task_edit/:id' component={taskEdit} />
+          {/* notes */}
+          <Route path='/notes' component={notes} />
+          <Route path='/note_create' component={noteCreate} />
+          <Route path='/note_show/:id' component={noteShow} />
+          <Route path='/note_edit/:id' component={noteEdit} />
         </ApolloProvider>
         </div>
       </Router>

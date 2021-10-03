@@ -1,10 +1,9 @@
 import React  from 'react';
-import { useState ,useEffect  } from 'react';
 import client from "../apollo-client";
+//import Task from '../../graphql/task'
 import { gql } from "@apollo/client";
 
 function Page() {
-  const [count, setCount] = useState(0);
   const getItems =async function(){
     const data = await client.query({
       query: gql`
@@ -21,9 +20,9 @@ console.log(data);
   }
   getItems();
   const func1 =async function(){
-    var name1 = document.getElementById('name1');
+    const name1 = document.getElementById('name1');
     console.log("func1: " + name1.value)
-    var item = {
+    const item = {
       name: "name1",
     }
 console.log( item )
@@ -31,11 +30,6 @@ console.log( item )
   return (
     <div className="container">
       <h3>Test2</h3>
-      <hr />
-      <p>You clicked {count} times</p>
-      <button onClick={() => {setCount(count + 1)}}>
-        Click me
-      </button>
       <hr />
       <input type="text" name="name1" id="name1" />
       <button onClick={() => {func1()}}>

@@ -1,58 +1,79 @@
 import React  from 'react';
 // import { useState ,useEffect  } from 'react';
-//import { Link } from 'react-router-dom';
-import axios  from 'axios';
+//import axios  from 'axios';
+import client from "../../apollo-client";
+import User from '../../graphql/user'
 
-function TodosCreate(props) {
-  const clickHandler= async function(){
-    try{
-      var name = document.getElementById('name');
-      var email = document.getElementById('email');
-      var password = document.getElementById('password');
-      var item = {
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      }
-      // /users/add
-      const res = await axios.post(
-        '/api/users/add' , item 
-      )
-console.log( res.data )            
-  
-    } catch (error) {
-      alert("Error, save item")
-      console.error(error);
+
+export default class TaskCreate extends React.Component {
+  static async getInitialProps(ctx) {
+    return { 
     }
-// console.log("clickHandler: " + title.value)
-    //props.history.push("/todos");
+  }  
+  constructor(props){
+    super(props)
+    this.state = {title: '', content: ''}
+//console.log(props.BASE_URL)
   }
-  return (
-  <div className="container py-2">
-    <h3>User - Create</h3>
-    <hr />
-    <div>
-      <label>Name : 
-        <input type="text" className="form-control" name="name" id="name" />
-      </label>
-    </div>
-    <hr />
-    <div>
-      <label>email : 
-        <input type="mail" className="form-control" name="email" id="email" />
-      </label>
-    </div>
-    <hr /> 
-    <div>
-      <label>password : 
-        <input type="password" className="form-control" name="password" id="password" />
-      </label>
-    </div>
-    <button onClick={() => {clickHandler()}}>
-      Save
-    </button>      
-    <hr />
-  </div>
-  );
+  componentDidMount(){
+  }   
+  handleClick(){
+    this.addItem()
+  } 
+  async addItem(){
+    try {
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const result = await client.mutate({
+        mutation: User.get_gql_add(name.value, email.value, password.value)
+      })
+console.log(result);
+      alert("complete, save");
+      location.href = '/';
+    } catch (error) {
+      console.error(error);
+      alert("Error, save item")
+    }    
+  } 
+  render() {
+    return (
+      <div className="container">
+      <hr className="mt-2 mb-2" />
+      <h1>User - Create</h1>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>name:</label>
+            <input type="text" className="form-control" name="name" id="name"
+              />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>email:</label>
+            <input type="text" className="form-control" name="email" id="email"
+              />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>password:</label>
+            <input type="password" className="form-control" name="password" id="password"
+              />
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+          <button className="btn btn-primary" onClick={this.handleClick.bind(this)}>Create
+          </button>
+      </div>                
+      <hr />
+    </div>      
+    )    
+  } 
 }
-export default TodosCreate;

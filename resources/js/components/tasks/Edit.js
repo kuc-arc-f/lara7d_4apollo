@@ -1,7 +1,5 @@
 import React  from 'react';
 import client from '../../apollo-client'
-//import LibBook from '../../lib/LibBook';
-import LibAuth from '../../lib/LibAuth';
 import Task from '../../graphql/task'
 
 export default class TaskEdit extends React.Component {
@@ -20,7 +18,7 @@ console.log(data.data.task)
     this.setState({id: item.id, title: item.title })
   }
   async clickHandler(){
-    var title = document.getElementById('title');
+    const title = document.getElementById('title');
 //console.log("clickHandler: " + title.value)
     const result = await client.mutate({
       mutation: Task.get_gql_update(this.id, title.value)
@@ -39,7 +37,7 @@ console.log(data.data.task)
 //console.log(this.state.item)
     return (
       <div className="container py-2">
-        <h3>Todos - Edit</h3>
+        <h3>task - Edit</h3>
         ID : {this.state.id}
         <hr />
         <div className="form-group col-md-6 mt-2">

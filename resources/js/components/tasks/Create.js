@@ -2,9 +2,19 @@ import React  from 'react';
 //import { useMutation } from '@apollo/client';
 import client from '../../apollo-client'
 import Task from '../../graphql/task'
-import LibAuth from '../../lib/LibAuth';
+import LibCookie from '../../lib/LibCookie'
+import LibConfig from '../../lib/LibConfig'
 
 export default class TaskCreate extends React.Component {
+  constructor(props) {
+    super(props);
+  }  
+  async componentDidMount(){
+    const key = LibConfig.getConfig().COOKIE_KEY_UID;
+    if(LibCookie.get_cookie(key) === null){
+      this.props.history.push("/login");
+    }      
+  }
   async clickHandler(){
     try{
       console.log("clickHandler");

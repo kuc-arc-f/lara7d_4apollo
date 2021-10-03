@@ -25,25 +25,30 @@ class TasksIndex extends React.Component {
     const data = await client.query({
       query: gql`
       query {
-        tasks {
+        notes {
           id
           title
+          content
+          noteTag{
+            id
+            name
+          }
         }
-      }
+      }      
       ` 
       ,fetchPolicy: "network-only"
     }) 
 console.log(data.data) 
     this.setState({
-      items : data.data.tasks, flash: f
+      items : data.data.notes, flash: f
     })
   }  
   render() {
     return (
     <div className="container py-4">
       <FlashBox flash={this.state.flash}></FlashBox>
-      <h3>Tasks - index</h3>
-      <Link to={`/task_create`} >
+      <h3>Notes - index</h3>
+      <Link to={`/note_create`} >
           <button>Create</button>
       </Link>      
       <hr />

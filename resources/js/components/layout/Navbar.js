@@ -10,6 +10,8 @@ class Navbar extends React.Component {
           <Link to="/">[ Home ] </Link>
           <Link to="/About" className="ml-2">[ About ] </Link>
           <Link to="/tasks" className="ml-2">[ Tasks ] </Link>
+          <Link to="/notes" className="ml-2">[ Notes ] </Link>
+          <Link to="/login" className="ml-2">[ Login ] </Link>
         </div>
         <hr />
       </div>
