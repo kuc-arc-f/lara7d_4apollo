@@ -22,6 +22,7 @@ export default class TaskCreate extends React.Component {
       const result = await client.mutate({
         mutation: Task.get_gql_add(title.value)
       })
+      console.log(result);
     } catch (e) {
       console.error(e);
       alert("Error, save item")

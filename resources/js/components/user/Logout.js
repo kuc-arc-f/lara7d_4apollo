@@ -1,17 +1,13 @@
 import React  from 'react';
-// import { useState ,useEffect  } from 'react';
-import { Link } from 'react-router-dom';
 import axios  from 'axios';
 
-function Page(props) {
-
+function Page() {
   const proc_logout = async function(){
     try{
-//      const response = await axios.get("/api/users/logout")
       const response = await axios.post(
         '/api/users/logout', {} 
       )
-      var data = await response.data    
+      const data = await response.data    
   console.log(data )      
     } catch (error) {
       alert("Error, save item")

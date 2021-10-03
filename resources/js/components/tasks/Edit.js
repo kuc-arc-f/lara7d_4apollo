@@ -22,7 +22,8 @@ console.log(data.data.task)
 //console.log("clickHandler: " + title.value)
     const result = await client.mutate({
       mutation: Task.get_gql_update(this.id, title.value)
-    }) 
+    })
+    console.log(result); 
     alert("Complete, update");
     this.props.history.push("/tasks");
   }
@@ -30,6 +31,7 @@ console.log(data.data.task)
     const result = await client.mutate({
       mutation: Task.get_gql_delete(this.id)
     }) 
+    console.log(result); 
     alert("Complete, delete");
     this.props.history.push("/tasks");
   }

@@ -1,15 +1,9 @@
 import React  from 'react';
-// import { useState ,useEffect  } from 'react';
-//import axios  from 'axios';
 import client from "../../apollo-client";
 import User from '../../graphql/user'
 
 
 export default class TaskCreate extends React.Component {
-  static async getInitialProps(ctx) {
-    return { 
-    }
-  }  
   constructor(props){
     super(props)
     this.state = {title: '', content: ''}
