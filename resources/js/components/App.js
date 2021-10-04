@@ -17,6 +17,8 @@ import tasks from './tasks/Index';
 import taskCreate from './tasks/Create';
 import taskShow from './tasks/Show';
 import taskEdit from './tasks/Edit';
+/* task_pages  */
+import taskPages from './task_pages/Index';
 /* notes */
 import notes from './notes/Index';
 import noteCreate from './notes/Create';
@@ -42,6 +44,7 @@ class App extends Component {
           <Route path='/task_create' component={taskCreate} />
           <Route path='/task_show/:id' component={taskShow} />
           <Route path='/task_edit/:id' component={taskEdit} />
+          <Route path='/task_pages' component={taskPages} />
           {/* notes */}
           <Route path='/notes' component={notes} />
           <Route path='/note_create' component={noteCreate} />

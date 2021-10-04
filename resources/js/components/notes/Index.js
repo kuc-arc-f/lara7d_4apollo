@@ -1,6 +1,6 @@
 import React  from 'react';
 import { Link } from 'react-router-dom';
-import { gql } from "@apollo/client";;
+import { gql } from "@apollo/client";
 import client from '../../apollo-client'
 import LibFlash from '../../lib/LibFlash';
 import LibCookie from '../../lib/LibCookie'
